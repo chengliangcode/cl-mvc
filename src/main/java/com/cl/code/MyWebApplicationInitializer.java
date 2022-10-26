@@ -1,5 +1,6 @@
 package com.cl.code;
 
+import com.cl.code.config.WebConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -18,6 +19,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
         // Load Spring web application configuration
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+        context.register(WebConfig.class);
 
         // Create and register the DispatcherServlet
         DispatcherServlet servlet = new DispatcherServlet(context);
